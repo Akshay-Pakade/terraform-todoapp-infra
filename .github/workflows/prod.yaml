@@ -1,12 +1,13 @@
 name: "Prod Terraform Workflow"
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main      
+  workflow_dispatch
+  # pull_request:
+  #   branches:
+  #     - main
+  # push:
+  #   branches:
+  #     - main      
 
 permissions:
   id-token: write
@@ -14,7 +15,7 @@ permissions:
   
 jobs: 
   terraform-init-plan:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps: 
       - name: Checkout
         uses: actions/checkout@v5.0.0
@@ -22,9 +23,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: ff27bcf6-f60c-4a57-8b01-8eee5de2a9cd
-          tenant-id: 0f7010fd-209e-4344-8457-043ffb37143b
-          subscription-id: 1075ec7a-b17a-4f37-bf3f-9d68c4506dc1
+          client-id: 7a355750-f47c-409e-bcf7-166f1d3d0236
+          tenant-id: e36e2232-cac4-497a-9243-862b9b46221b
+          subscription-id: 06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5  
             
       - name: Terraform fmt
         id: fmt
@@ -60,9 +61,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: ff27bcf6-f60c-4a57-8b01-8eee5de2a9cd
-          tenant-id: 0f7010fd-209e-4344-8457-043ffb37143b
-          subscription-id: 1075ec7a-b17a-4f37-bf3f-9d68c4506dc1   
+          client-id: 7a355750-f47c-409e-bcf7-166f1d3d0236
+          tenant-id: e36e2232-cac4-497a-9243-862b9b46221b
+          subscription-id: 06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5  
           
       - name: Terraform Init
         id: init
