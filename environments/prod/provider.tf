@@ -5,11 +5,11 @@ terraform {
       version = "4.41.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "todo-app-0075"
-    storage_account_name = "todoapp0075"
-    container_name       = "todoapp0075"
-    key                  = "prod.tfstate"
+     backend "azurerm" {
+    resource_group_name  = "test-rg"
+    storage_account_name = "teststoragepipelinean"
+    container_name       = "akscontainer"
+    key                  = "jiokaterraform.tfstate"
   }
 }
 
